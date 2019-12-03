@@ -19,6 +19,11 @@ window.onload = function() {
     // equivalent set of six event listeners for your solutions. the first one is done for you.
 
     this.document.getElementById("hello").onclick = sayHello;
+    this.document.getElementById("rectangle").onclick = drawRectangle;
+    this.document.getElementById("color").onclick = drawColoredRectangle;
+    this.document.getElementById("triangle").onclick = drawTriangle;
+    this.document.getElementById("smile").onclick = drawFace;
+    this.document.getElementById("drawPyramid").onclick = drawFace;
 }
 
 /*
@@ -26,8 +31,9 @@ window.onload = function() {
  */
 
 const sayHello = function() {
-    // write your exercise 1 code here
+    alert(this.document.getElementById);
 };
+
 
 /*
  * Exercise 2.
