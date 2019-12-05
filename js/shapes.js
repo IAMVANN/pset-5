@@ -31,7 +31,23 @@ window.onload = function() {
  */
 
 const sayHello = function() {
-    alert(this.document.getElementById);
+    const helloResponse = prompt("Message:");
+
+
+    if(helloResponse.length <= 50){
+        let studentCanvasA = document.getElementById("student-canvas-1");
+        let optimizeA = studentCanvasA.getContext("2d");
+
+        optimizeA.font = "48px Georgia";
+
+        optimizeA.fillText(helloResponse, 10, 50);
+
+    } else {
+        window.confirm("Your message is too long. Keep it under 50 characters.")
+
+    }
+
+
 };
 
 
