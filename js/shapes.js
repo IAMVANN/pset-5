@@ -31,23 +31,26 @@ window.onload = function() {
  */
 
 const sayHello = function() {
-    const helloResponse = prompt("Message:");
-
-
-    if(helloResponse.length <= 50){
-        let studentCanvasA = document.getElementById("student-canvas-1");
-        let optimizeA = studentCanvasA.getContext("2d");
-
-        optimizeA.font = "48px Georgia";
-
-        optimizeA.fillText(helloResponse, 10, 50);
-
-    } else {
-        window.confirm("Your message is too long. Keep it under 50 characters.")
-
+    let validA = false
+    while(validA == false){
+        let helloResponse = prompt("Message:");
+        if(helloResponse.length > 50){
+            let confirmA = alert("Your message is too long. Keep it under 50 characters.")
+        } else {
+            if(helloResponse == null){
+                validA = true;
+            } else {
+                let studentCanvasA = document.getElementById("student-canvas-1");
+                let optimizeA = studentCanvasA.getContext("2d");
+                optimizeA.clearRect(0,0, 1024, 128);
+                if(helloResponse.length <= 50){
+                    optimizeA.font = "48px sans-serif";
+                    optimizeA.strokeText(helloResponse, 30, 70);
+                }
+                validA = true;
+            }
+        }
     }
-
-
 };
 
 
@@ -56,7 +59,18 @@ const sayHello = function() {
  */
 
 const drawRectangle = function() {
-    // write your exercise 2 code here
+    let validB = false;
+    while(validB == false){
+
+    }
+    let rectResponseWidth = prompt("Width");
+    let rectReponseHeight = prompt("Height");
+    let rectReponseX = prompt("X");
+    let rectReponseY = prompt("Y");
+    if(){
+
+    }
+
 };
 
 /*
