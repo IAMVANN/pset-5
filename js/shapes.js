@@ -132,6 +132,44 @@ const drawColoredRectangle = function() {
  */
 
 const drawTriangle = function() {
+        let validD = false;
+        let heightD;
+        let hypoD;
+        let baseD;
+        while(validD == false){
+            let studentCanvasD = document.getElementById("student-canvas-4");
+            let optimizeD = studentCanvasD.getContext("2d");
+            optimizeD.clearRect(0, 0, 1024, 512);
+            let sidelD = prompt("Side 1"); //roman numerals
+            let sidel = Number(sidelD);
+            let sidellD = prompt("Side 2");
+            let sidell = Number(sidellD);
+            let sidelllD = prompt("Side 3");
+            let sidelll = Number(sidelllD);
+            if(side1.isNaN == true || sidell.isNaN == true || sidelll.isNaN == true){
+                alert("One of your sides is not a number.");
+            } else{
+                    if(side1 < sidell){
+                        holder = sidel;
+                        sidel = sidell;
+                        sidell = holder;
+                    }
+                    if(sidel < sidelll){
+                        holder = sidel;
+                        sidel = sidelll;
+                        sidelll = holder;
+                    }
+                    if(sidell < sidelll){
+                        holder = sidell;
+                        sidell = sidell;
+                        sidelll = holder;
+                    }
+                    hypoD = sidel;
+                    heightD = sidelll;
+                    baseD = sidell;
+                }
+            }
+        }
     // write your exercise 4 code here
 };
 
