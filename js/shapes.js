@@ -60,17 +60,45 @@ const sayHello = function() {
 
 const drawRectangle = function() {
     let validB = false;
+    let nullZ = false;
     while(validB == false){
+    let studentCanvasB = document.getElementById("student-canvas-2");
+    let optimizeB = studentCanvasB.getContext("2d");
+    optimizeB.clearRect(0, 0, 1024, 512);
 
-    }
-    let rectResponseWidth = prompt("Width");
-    let rectReponseHeight = prompt("Height");
-    let rectReponseX = prompt("X");
-    let rectReponseY = prompt("Y");
-    if(){
 
-    }
-
+    let widthNullCheck = prompt("Width");
+    let width = Number(widthNullCheck)
+    let heightNullCheck = prompt("Height");
+    let height = Number(heightNullCheck);
+    let xNC = prompt("X");
+    let x = Number(xNC);
+    let yNC = prompt("Y");
+    let y = Number(yNC);
+    if(widthNullCheck == null || heightNullCheck == null || xNC == null || yNC == null){
+        validB = true;
+        nullZ = true;
+     }else if(Number.isNaN(width) == true || Number.isNaN(height) == true || Number.isNaN(x) == true ||
+      Number.isNaN(y) == true ){
+          alert("One of your values is not a number.");
+     } else if (width < 1 && width > 1024){
+          alert("Your width must be between 1 and 1024.");
+     } else if(height < 1 && height > 512){
+         alert("Your height must be between 1 and 512.");
+     } else if(x < 1){
+         alert("Your x-coordinate must be between 1 and 1024.");
+     } else if(y < 1){
+         alert("Your x-coordinate must be between 1 and 512.");
+     } else if(width + x > 1024 || height + y > 1024){
+         alert("Your rectangle won't fit on the canvas.");
+     }else {
+         validB = true;
+     }
+     if(validB == true && nullZ == false){
+         optimizeB.rect(x, y, width, height);
+         optimizeB.stroke();
+     }
+}
 };
 
 /*
@@ -78,7 +106,25 @@ const drawRectangle = function() {
  */
 
 const drawColoredRectangle = function() {
-    // write your exercise 3 code here
+    let validC = false;
+    while(validC == false){
+        let studentCanvasC = document.getElementById("student-canvas-3");
+        let optimizeC = studentCanvasC.getContext("2d");
+        optimizeC.clearRect(0, 0, 1024, 128);
+        let color = prompt("Color");
+        color = color.toLowerCase();
+        if(color == "black" || color == "blue" || color == "green" || color == "orange" || color == "purple" ||
+          color == "red" || color ==  "yellow"){
+            validC = true;
+            optimizeC.rect(10, 10, 100, 50);
+            optimizeC.fillStyle = color;
+            optimizeC.fillRect(10,10, 100, 50);
+        } else if(color == null){
+            validC = true;
+        } else {
+            alert(color + "is not a supported color.");
+        }
+    }
 };
 
 /*
