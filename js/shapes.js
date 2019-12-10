@@ -148,6 +148,8 @@ const drawTriangle = function() {
             let sidelll = Number(sidelllD);
             if(side1.isNaN == true || sidell.isNaN == true || sidelll.isNaN == true){
                 alert("One of your sides is not a number.");
+            } else if(sidel < 1 || sidel > 1024 || sidell < 1 || sidell > 1024 || sidell < 1 || sidelll > 1024){
+                alert("Hey this needs to be changed ASAP");
             } else{
                     if(side1 < sidell){
                         holder = sidel;
@@ -167,6 +169,12 @@ const drawTriangle = function() {
                     hypoD = sidel;
                     heightD = sidelll;
                     baseD = sidell;
+                    if(heightD ** 2 + baseD ** 2 != hypoD ** 2){
+                        alert("Hey, this needs to changed ASAP");
+                    } else {
+                        optimizeD.beingPath();
+                        
+                    }
                 }
             }
         }
