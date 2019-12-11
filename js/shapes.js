@@ -197,11 +197,22 @@ const drawFace = function() {
     let validE = false;
     while(validE == false){
         let studentCanvasE = document.getElementById("student-canvas-5");
-        let optimizeE = studentCanvasD.getContext("2d");
+        let optimizeE = studentCanvasE.getContext("2d");
+        optimizeE.clearRect(0, 0, 1024, 512);
         let headRadi = Number(prompt("Radius"));
-        if(headRadi < 32 ){
-            alert("Your radius must be atleast 32.")
-        } else if 
+        if(Number.isNaN(headRadi) == true ){
+            alert("Your radius is not a number");
+        } else if(headRadi < 32 ){
+            alert("Your radius must be atleast 32.");
+        } else if(headRadi > 256){
+            alert("Your smiley face won't fit on the canvas.");
+        } else {
+            optimizeE.beginPath();
+            optimizeE.arc(512, 256, headRadi, 0, 2 * Math.PI, false);
+            optimizeE.stroke();
+            validE = true;
+        }
+
 
 
 
