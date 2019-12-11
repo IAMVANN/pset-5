@@ -23,7 +23,7 @@ window.onload = function() {
     this.document.getElementById("color").onclick = drawColoredRectangle;
     this.document.getElementById("triangle").onclick = drawTriangle;
     this.document.getElementById("smile").onclick = drawFace;
-    this.document.getElementById("drawPyramid").onclick = drawFace;
+    this.document.getElementById("drawPyramid").onclick = drawPyramid;
 }
 
 /*
@@ -133,9 +133,6 @@ const drawColoredRectangle = function() {
 
 const drawTriangle = function() {
         let validD = false;
-        let heightD;
-        let hypoD;
-        let baseD;
         while(validD == false){
             let studentCanvasD = document.getElementById("student-canvas-4");
             let optimizeD = studentCanvasD.getContext("2d");
@@ -146,37 +143,47 @@ const drawTriangle = function() {
             let sidell = Number(sidellD);
             let sidelllD = prompt("Side 3");
             let sidelll = Number(sidelllD);
-            if(side1.isNaN == true || sidell.isNaN == true || sidelll.isNaN == true){
+            let heightD;
+            let hypoD;
+            let baseD;
+            if(sidel < sidell){
+                holder = sidel;
+                sidel = sidell;
+                sidell = holder;
+            }
+            if(sidel < sidelll){
+                holder = sidel;
+                sidel = sidelll;
+                sidelll = holder;
+            }
+            if(sidell < sidelll){
+                holder = sidell;
+                sidell = sidelll;
+                sidelll = holder;
+            }
+            hypoD = sidel;
+            heightD = sidelll;
+            baseD = sidell;
+            if(sidel == null || sidell == null || sidelll == null){
+                validD = true;
+            } else if(Number.isNaN(sidel) == true || Number.isNaN(sidell) == true || Number.isNaN(sidelll) == true){
                 alert("One of your sides is not a number.");
-            } else if(sidel < 1 || sidel > 1024 || sidell < 1 || sidell > 1024 || sidell < 1 || sidelll > 1024){
-                alert("Hey this needs to be changed ASAP");
+            } else if(heightD ** 2 + baseD ** 2 != hypoD ** 2){
+                alert("That's not a valid right triangle");
+            } else if(sidel < 1 || sidel > 999 || sidell < 1 || sidell > 999 || sidelll < 1 || sidelll > 999){
+                alert("Your triangle won't fit on the canvas");
             } else{
-                    if(side1 < sidell){
-                        holder = sidel;
-                        sidel = sidell;
-                        sidell = holder;
-                    }
-                    if(sidel < sidelll){
-                        holder = sidel;
-                        sidel = sidelll;
-                        sidelll = holder;
-                    }
-                    if(sidell < sidelll){
-                        holder = sidell;
-                        sidell = sidell;
-                        sidelll = holder;
-                    }
-                    hypoD = sidel;
-                    heightD = sidelll;
-                    baseD = sidell;
-                    if(heightD ** 2 + baseD ** 2 != hypoD ** 2){
-                        alert("Hey, this needs to changed ASAP");
-                    } else {
-                        optimizeD.beingPath();
-                        
+                if(heightD ** 2 + baseD ** 2 != hypoD ** 2){
+                } else {
+                    optimizeD.beginPath();
+                    optimizeD.moveTo(25,25);
+                    optimizeD.lineTo(25, 25 + heightD);
+                    optimizeD.lineTo(25 + baseD, 25 + heightD);
+                    optimizeD.lineTo(25,25);
+                    optimizeD.stroke();
+                    validD = true;
                     }
                 }
-            }
         }
     // write your exercise 4 code here
 };
@@ -186,7 +193,19 @@ const drawTriangle = function() {
  */
 
 const drawFace = function() {
-    // write your exercise 4 code here
+    // write your exercise 5 code here
+    let validE = false;
+    while(validE == false){
+        let studentCanvasE = document.getElementById("student-canvas-5");
+        let optimizeE = studentCanvasD.getContext("2d");
+        let headRadi = Number(prompt("Radius"));
+        if(headRadi < 32 ){
+            alert("Your radius must be atleast 32.")
+        } else if 
+
+
+
+    }
 };
 
 /*
