@@ -23,7 +23,7 @@ window.onload = function() {
     this.document.getElementById("color").onclick = drawColoredRectangle;
     this.document.getElementById("triangle").onclick = drawTriangle;
     this.document.getElementById("smile").onclick = drawFace;
-    this.document.getElementById("drawPyramid").onclick = drawPyramid;
+    this.document.getElementById("pyramid").onclick = drawPyramid;
 }
 
 /*
@@ -117,7 +117,10 @@ const drawColoredRectangle = function() {
         let optimizeC = studentCanvasC.getContext("2d");
         optimizeC.clearRect(0, 0, 1024, 128);
         let color = prompt("Color");
-        color = color.toLowerCase();
+        if (color != null) {
+                color = color.toLowerCase();
+        }
+
         if (color == "black" || color == "blue" || color == "green" || color == "orange" || color == "purple" ||
           color == "red" || color ==  "yellow") {
             validC = true;
