@@ -199,8 +199,11 @@ const drawFace = function() {
         let studentCanvasE = document.getElementById("student-canvas-5");
         let optimizeE = studentCanvasE.getContext("2d");
         optimizeE.clearRect(0, 0, 1024, 512);
-        let headRadi = Number(prompt("Radius"));
-        if(Number.isNaN(headRadi) == true ){
+        let headRadiE = prompt("Radius");
+        let headRadi = Number(headRadiE);
+        if(headRadiE == null){
+            validE = true;
+        } else if(Number.isNaN(headRadi) == true ){
             alert("Your radius is not a number");
         } else if(headRadi < 32 ){
             alert("Your radius must be atleast 32.");
@@ -208,8 +211,26 @@ const drawFace = function() {
             alert("Your smiley face won't fit on the canvas.");
         } else {
             optimizeE.beginPath();
+            //circle!!!!
             optimizeE.arc(512, 256, headRadi, 0, 2 * Math.PI, false);
             optimizeE.stroke();
+            optimizeE.closePath();
+            optimizeE.beginPath();
+            //left EYEE!!!!s
+            optimizeE.arc( 512 - (headRadi * .4) , 256 - (headRadi * .4) , headRadi * .15, 0,  2 * Math.PI, false);
+            optimizeE.stroke();
+            optimizeE.closePath();
+            optimizeE.beginPath();
+            //RIGhT EYE!!!!
+            optimizeE.arc(512 + (headRadi * .4), 256 - (headRadi  * .4), headRadi * .15, 0, 2 * Math.PI, false);
+            optimizeE.stroke();
+            optimizeE.closePath();
+            optimizeE.beginPath();
+            //smile
+            optimizeE.arc(512, 256, headRadi * .7, 0, 1 * Math.PI, false );
+            optimizeE.stroke();
+            optimizeE.closePath();
+
             validE = true;
         }
 
