@@ -100,6 +100,7 @@ const drawRectangle = function() {
              validB = true;
          }
          if (validB == true && nullZ == false) {
+             optimizeB.beginPath()
              optimizeB.rect(x, y, width, height);
              optimizeB.stroke();
          }
